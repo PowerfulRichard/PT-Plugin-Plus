@@ -17,6 +17,15 @@
       "ratio": "1.05"
     }
   ],
+  "plugins": [{
+    "name": "种子详情页面",
+    "pages": ["/details.php"],
+    "scripts": ["/schemas/NexusPHP/common.js", "details.js"]
+  }, {
+    "name": "种子列表",
+    "pages": ["/search.php"],
+    "scripts": ["/schemas/NexusPHP/common.js", "torrents.js"]
+  }],
   "searchEntryConfig": {
     "page": "/search.php",
     "queryString": "search=$key$&incldead=1&inname=1&indesc=1&infn=1&orderby=added&sort=desc",
@@ -183,13 +192,6 @@
       }
     }
   },
-  "plugins": [
-    {
-      "name": "种子详情页",
-      "pages": ["/details.php"],
-      "scripts": ["common.js", "details.js"]
-    }
-  ],
   "categories": [
     {
       "entry": "*",
