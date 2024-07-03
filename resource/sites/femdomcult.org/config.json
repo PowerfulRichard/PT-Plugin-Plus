@@ -22,16 +22,16 @@
       "page": "/index.php",
       "fields": {
         "id": {
-          "selector": ["a.username[href*='user.php']:first"],
+          "selector": ["#nav_userinfo a.username"],
           "attribute": "href",
-          "filters": ["query ? query.getQueryString('id'):''"]
+          "filters": ["query.text().match(/id=.+(\\d+)/)"]        
         },
         "name": {
           "selector": ["a.username"]
         },
         "isLogged": {
-          "selector": ["a.username"],
-          "filters": ["query.length>1"]
+          "selector": ["li#navmenu_logout"],
+          "filters": ["query.length>0"]
         },
         "bonus": {
           "selector": ["span#stats_credits"]
@@ -46,11 +46,11 @@
       "fields": {
         "uploaded": {
           "selector": "div:contains('Stats') + ul.stats > li:contains('Uploaded')",
-          "filters": ["query.text().replace(/,/g,'').match(/Uploaded.+?([\\d.]+ ?[ZEPTGMK]?i?B)/)", "(query && query.length>=2)?(query[1]).sizeToNumber():0"]
+          "filters": ["query.text().replace(/,/g,'').match(/Uploaded:.+?([\\d.]+ ?[ZEPTGMK]?i?B)/)", "(query && query.length>=2)?(query[1]).sizeToNumber():0"]
         },
         "downloaded": {
           "selector": "div:contains('Stats') + ul.stats > li:contains('Downloaded')",
-          "filters": ["query.text().replace(/,/g,'').match(/Downloaded.+?([\\d.]+ ?[ZEPTGMK]?i?B)/)", "(query && query.length>=2)?(query[1]).sizeToNumber():0"]
+          "filters": ["query.text().replace(/,/g,'').match(/Downloaded:.+?([\\d.]+ ?[ZEPTGMK]?i?B)/)", "(query && query.length>=2)?(query[1]).sizeToNumber():0"]
         },
         "levelName": {
           "selector": "div:contains('Personal') + ul.stats > li:contains('Class:')",
