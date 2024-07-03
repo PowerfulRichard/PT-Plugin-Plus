@@ -7,8 +7,65 @@
   "tags": [
     "成人"
   ],
-  "schema": "Gazelle",
+  "schema": "FDC",
   "host": "femdomcult.org",
+  "searchEntry": [{
+    "entry": "/torrents.php?searchtext=$key$",
+    "name": "all",
+    "resultType": "html",
+    "parseScriptFile": "/schemas/Gazelle/getSearchResult.js",
+    "resultSelector": "table.torrent_table:last > tbody > tr",
+    "enabled": true
+  }],
+  "selectors": {
+    "userBaseInfo": {
+      "page": "/index.php",
+      "fields": {
+        "id": {
+          "selector": ["a.username[href*='user.php']:first"],
+          "attribute": "href",
+          "filters": ["query ? query.getQueryString('id'):''"]
+        },
+        "name": {
+          "selector": ["a.username"]
+        },
+        "isLogged": {
+          "selector": ["a.username"],
+          "filters": ["query.length>1"]
+        },
+        "bonus": {
+          "selector": ["span#stats_credits"]
+        },
+        "ratio": {
+          "selector": ["span.r20"]
+        }
+      }
+    },
+    "userExtendInfo": {
+      "page": "/user.php?id=$user.id$",
+      "fields": {
+        "uploaded": {
+          "selector": "div:contains('Stats') + ul.stats > li:contains('Uploaded')",
+          "filters": ["query.text().replace(/,/g,'').match(/Uploaded.+?([\\d.]+ ?[ZEPTGMK]?i?B)/)", "(query && query.length>=2)?(query[1]).sizeToNumber():0"]
+        },
+        "downloaded": {
+          "selector": "div:contains('Stats') + ul.stats > li:contains('Downloaded')",
+          "filters": ["query.text().replace(/,/g,'').match(/Downloaded.+?([\\d.]+ ?[ZEPTGMK]?i?B)/)", "(query && query.length>=2)?(query[1]).sizeToNumber():0"]
+        },
+        "levelName": {
+          "selector": "div:contains('Personal') + ul.stats > li:contains('Class:')",
+          "filters": ["query.text().match(/Class:.+?(.+)/)", "(query && query.length>=2)?query[1]:''"]
+        },
+        "joinTime": {
+          "selector": ["div.sidebar>div:nth-child(6)>ul>li:nth-child(1)>span"]
+        },
+        "uploads": {
+          "selector": ["div.sidebar>div:nth-child(12)>ul>li:nth-child(9)"]
+
+        }
+      }
+    }
+  },
   "levelRequirements": [{
     "level": "1", 
     "name": "Beginner",
