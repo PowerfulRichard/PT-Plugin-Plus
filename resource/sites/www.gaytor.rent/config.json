@@ -186,11 +186,8 @@
   "plugins": [
     {
       "name": "种子详情页",
-      "pages": "details.php",
-      "scripts": [
-        "common.js",
-        "details.js"
-      ]
+      "pages": ["/details.php"],
+      "scripts": ["common.js", "details.js"]
     }
   ],
   "categories": [
