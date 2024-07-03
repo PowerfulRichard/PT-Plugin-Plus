@@ -7,97 +7,52 @@
   "tags": [
     "成人"
   ],
-  "schema": "GazelleJSONAPI",
+  "schema": "Gazelle",
   "host": "femdomcult.org",
   "levelRequirements": [{
     "level": "1", 
-    "name": "",
+    "name": "Beginner",
     "interval": "1",
-    "trueDownloaded": "5GB",
     "ratio": "0",
-    "privilege": ""
+    "privilege": "Can upload, can vote on requests but is limited to downloading a total of 10GB per 24 hours (includes freeleech)."
   },{
     "level": "2", 
-    "name": "",
-    "interval": "2",
-    "trueDownloaded": "10GB",
-    "ratio": "0.1",
-    "privilege": ""
+    "name": "Perv",
+    "interval": "1",
+    "uploaded": "10GB",
+    "ratio": "0.7",
+    "privilege": "Can make content requests in Requests area, can access Top 10, can use the notifications system, can bookmark torrents, can create collages and can create a personal collage."
   },{
     "level": "3", 
-    "name": "",
-    "interval": "3",
-    "trueDownloaded": "20GB",
-    "ratio": "0.15",
-    "privilege": ""
+    "name": "Member",
+    "interval": "4",
+    "uploaded": "25GB",
+    "ratio": "1.05",
+    "uploads": "10",
+    "privilege": "Can view site statistics, can create polls in the forums, can add multiple tags at once, can access the invite forums, can set and can use a torrent signature."
   },{
     "level": "4", 
-    "name": "",
+    "name": "Senior Member",
     "interval": "4",
-    "trueDownloaded": "30GB",
-    "ratio": "0.2",
-    "privilege": ""
+    "uploaded": "1TB",
+    "ratio": "1.05",
+    "uploads": "50",
+    "privilege": "Can use advanced bbcode tags and can download multiple torrents at once."
   },{
     "level": "5", 
-    "name": "",
-    "interval": "5",
-    "trueDownloaded": "40GB",
-    "ratio": "0.3",
-    "privilege": ""
-  },{
-    "level": "6", 
-    "name": "",
-    "interval": "6",
-    "trueDownloaded": "50GB",
-    "ratio": "0.4",
-    "privilege": ""
-  },{
-    "level": "7", 
-    "name": "Guru",
-    "interval": "7",
-    "trueDownloaded": "60GB",
-    "ratio": "0.5",
-    "privilege": ""
-    }
+    "name": "Uploader",
+    "interval": "8",
+    "uploaded": "5TB",
+    "ratio": "1.05",
+    "uploads": "150",
+    "privilege": "Can view torrent snatchlists, can view torrent peerlists, can delete tags, can make freeleech torrents, can download VIP torrents and can use invites when necessary."
+  }
   ],
   "collaborator": [
     "RichardHu"
   ],
-  "searchEntryConfig": {
-    "page": "/ajax.php",
-    "resultType": "json",
-    "parseScriptFile": "getSearchResult.js",
-    "asyncParse": true,
-    "queryString": "action=browse&searchstr=$key$"
-  },
-  "searchEntry": [{
-    "name": "全部",
-    "enabled": true
-  }],
-  "selectors": {
-    "userBaseInfo": {
-      "page": "/ajax.php?action=index",
-      "dataType": "json",
-      "fields": {
-        "id": {
-          "selector": ["response.id"]
-        },
-        "name": {
-          "selector": ["response.username"]
-        },
-        "uploaded": {
-          "selector": ["response.userstats.uploaded"]
-        },
-        "downloaded": {
-          "selector": ["response.userstats.downloaded"]
-        },
-        "ratio": {
-          "selector": ["response.userstats.ratio"]
-        },
-        "levelName": {
-          "selector": ["response.userstats.class"]
-        }
-      }
-    }
+  "supportedFeatures": {
+    "imdbSearch": false,
+    "userData": "◐"
   }
 }
