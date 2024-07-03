@@ -5,7 +5,6 @@
   "cdn": ["https://www.gaytor.rent/", "https://www.gaytorrent.ru/"],
   "icon": "https://www.gaytor.rent/favicon.ico",
   "tags": ["影视", "成人", "综合"],
-  "schema": "Common",
   "host": "www.gaytor.rent",
   "collaborator": ["davidxuang", "haowenwu"],
   "levelRequirements": [
