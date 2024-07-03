@@ -29,10 +29,6 @@
         "name": {
           "selector": ["a.username"]
         },
-        "isLogged": {
-          "selector": ["li#navmenu_logout"],
-          "filters": ["query.length>0"]
-        },
         "bonus": {
           "selector": ["span#stats_credits"]
         },
@@ -61,7 +57,6 @@
         },
         "uploads": {
           "selector": ["div.sidebar>div:nth-child(12)>ul>li:nth-child(9)"]
-
         }
       }
     }
